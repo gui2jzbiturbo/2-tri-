@@ -1,65 +1,152 @@
-/* Estilos gerais */
+/* Fontes personalizadas */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2 {
+    font-family: 'Chewy', cursive;
+}
+
+/* Cores e estilos base */
+:root {
+    --color-primary: #FF6B6B;
+    --color-secondary: #4ECDC4;
+    --color-dark: #292F36;
+    --color-light: #F7FFF7;
+    --color-accent: #FFE66D;
+}
+
+body {
+    background-color: #F0F4F8;
+    color: var(--color-dark);
     line-height: 1.6;
     padding: 20px;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-/* Container principal */
 .container {
     background-color: white;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Título */
-h1 {
-    color: #2c3e50;
+/* Cabeçalho */
+header {
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 2.2em;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+h1 span {
+    color: var(--color-secondary);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
 }
 
 /* Lista de alimentos */
-ul {
-    list-style-type: none;
+.food-list {
+    list-style: none;
     padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
-/* Itens da lista */
-li {
-    background-color: white;
-    margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+.food-item {
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 120px;
 }
 
-/* Efeito hover nos itens */
-li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.food-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
 }
 
-/* Links */
-a {
-    color: #2980b9;
+.food-item a {
     text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1em;
+    color: inherit;
     display: block;
+    height: 100%;
 }
 
-/* Efeito hover nos links */
-a:hover {
-    color: #3498db;
-    text-decoration: underline;
+.food-item h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.food-item p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Cores individuais para cada item */
+.food-item.egg {
+    background-color: #FFF5E6;
+    border-left: 8px solid #FFD166;
+}
+
+.food-item.chicken {
+    background-color: #E6F3FF;
+    border-left: 8px solid #4CC9F0;
+}
+
+.food-item.meat {
+    background-color: #FFE6E6;
+    border-left: 8px solid #EF476F;
+}
+
+.food-item.milk {
+    background-color: #F0FFF0;
+    border-left: 8px solid #06D6A0;
+}
+
+.food-item.beans {
+    background-color: #F5E6FF;
+    border-left: 8px solid #7209B7;
+}
+
+/* Efeitos hover */
+.food-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .food-list {
+        grid-template-columns: 1fr;
+    }
 }
